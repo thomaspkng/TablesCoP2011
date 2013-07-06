@@ -50,9 +50,9 @@ function divchg(divshow) {
 	$("#"+divshow).show(350);
 	}
 function init() {
-	$(document).ready(
+	$(document).ready(function(){
 		divchg("tableselect");
 		wW = document.innerWidth;
 	  	$("#mainscreen").css('width', wW);
-		);
+		});
 	}
