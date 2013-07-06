@@ -7,7 +7,7 @@ table {
 	}
 table.mainscreen {
 	position: fixed;
-	top: 25px;
+	top: 0px;
 	left: 0px;
 	border-collapse: collapse;
 	background-color: #115511;
