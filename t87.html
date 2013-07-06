@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./pagestyle.css" />
+<script type="text/javascript" src="./tablechecking.js"></script>
+<script type="text/javascript" src="./jquery.js"></script>
+<style type="text/css">
+td {
+	font-size: 10px;
+	}
+td.ce {
+	text-align: center;
+	}
+</style>
+</head>
+<body>
+<table align="center" width="95%" border="1">
+<tr>
+<td rowspan="2" width="50%" class="ce">Type of Section</td>
+<td rowspan="2" width="20%" class="ce">Maximum thickness (see note1)</td>
+<td colspan="2" class="ce">Axis of buckling</td>
+</tr>
+<tr><td width="15%" class="ce">x-x</td><td width="15%" class="ce">y-y</td></tr>
+<tr><td>Hot - finished structural hollow section</td><td></td><td class="ce">a)</td><td class="ce">a)</td></tr>
+<tr><td>Cold - formed structural hollow section</td><td></td><td class="ce">c)</td><td class="ce">c)</td></tr>
+<tr><td rowspan="2">Rolled I - section</td><td class="ce">&le;40 mm</td><td class="ce">a)</td><td class="ce">b)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">b)</td><td class="ce">c)</td></tr>
+<tr><td rowspan="2">Rolled H - section</td><td class="ce">&le;40 mm</td><td class="ce">b)</td><td class="ce">c)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">c)</td><td class="ce">d)</td></tr>
+<tr><td rowspan="2">Welded I or H - section (see note2)</td><td class="ce">&le;40 mm</td><td class="ce">b)</td><td class="ce">c)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">c)</td><td class="ce">d)</td></tr>
+<tr><td rowspan="2">Rolled I -section with welded flange cover plates with 0.25 &lt; U/B &lt; 0.80 as shown in Figure 8.4</td><td class="ce">&le;40 mm</td><td class="ce">a)</td><td class="ce">b)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">b)</td><td class="ce">c)</td></tr>
+<tr><td rowspan="2">Rolled H -section with welded flange cover plates with 0.25 &lt; U/B &lt; 0.80 as shown in Figure 8.4</td><td class="ce">&le;40 mm</td><td class="ce">b)</td><td class="ce">c)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">c)</td><td class="ce">d)</td></tr>
+<tr><td rowspan="2">Rolled I or H -section with welded flange cover plates with U/B &ge; 0.80 as shown in Figure 8.4</td><td class="ce">&le;40 mm</td><td class="ce">b)</td><td class="ce">a)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">c)</td><td class="ce">b)</td></tr>
+<tr><td rowspan="2">Rolled I or H -section with welded flange cover plates with U/B &le; 0.25 as shown in Figure 8.4</td><td class="ce">&le;40 mm</td><td class="ce">b)</td><td class="ce">c)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">c)</td><td class="ce">d)</td></tr>
+<tr><td rowspan="2">Welded box section (see note3)</td><td class="ce">&le;40 mm</td><td class="ce">b)</td><td class="ce">b)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">c)</td><td class="ce">c)</td></tr>
+<tr><td rowspan="2">Round, square or flat bar</td><td class="ce">&le;40 mm</td><td class="ce">b)</td><td class="ce">b)</td></tr>
+	<tr><td class="ce">&gt;40 mm</td><td class="ce">c)</td><td class="ce">c)</td></tr>
+<tr><td>Rolled angle, channel or T-section<br/>Two rolled sections laced, battened or back-to-back<br/>compound rolled sections</td><td></td><td colspan="2" class="ce">Any axis: c)</td></tr>
+<tr>
+<td colspan="4">
+<table>
+<tr><td colspan="2">NOTE</td></tr>
+<tr><td>1.</td><td>For thickness between 40mm and 50mm the value of pc may be taken as the average of the values for thicknesses up to 40mm and over 40mm for the relevant value of py.</td></tr>
+<tr><td>2.</td><td>For welded I or H-sections with their flanges thermally cut by machine without subsequent edge grinding or machining, for buckling about the y-y axis, strut curve b) may be used for flanges up to 40mm thick and strut curve c) for flanges over 40mm thick.</td></tr>
+<tr><td>3.</td><td>The category "welded box section" includes any box section fabricated from plates or rolled sections, provided that all of the longitudinal welds are near the corners of the cross-section. Box sections with longitudinal stiffeners are NOT included in this category.</td></tr>
+<tr><td>4.</td><td>Use of buckling curves based on other recognized design codes allowing for variation between load and material factors and calibrated against Tables 8.8(a) to (h) is acceptable. See also foot note under Table 8.8.</td></tr>
+</table>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

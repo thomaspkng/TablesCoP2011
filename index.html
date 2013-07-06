@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./pagestyle.css" />
+<script type="text/javascript" src="./tablechecking.js"></script>
+<script type="text/javascript" src="./jquery.js"></script>
+</head>
+<body onload="init()">
+<table class="mainscreen" align="center" id="maintable" style="width:400px; height:650px;">
+<tr><td colspan="2">QuickCheck - Tables@CoP-SUoS2011</td></tr>
+<tr>
+<td align="center" style="width:100%; height:100%;" class="container">
+<!-- 1st DIV : TABLE SELECTION -->
+	<div id="tableselect" class="tableselect">
+		<table>
+			<tr><td colspan="2">SELECT TABLE :</td></tr>
+			<tr><td colspan="2"><hr/></td></tr>
+			<tr><td colspan="2">Bending Stress -</td></tr>
+			<tr><td>Rolled Section - Table 8.3a</td><td><input type="button" value="8.3a" onclick="divchg('t83a')" /></td></tr>
+			<tr><td>Welded Section - Table 8.3b</td><td><input type="button" value="8.3b" onclick="divchg('t83b')" /></td></tr>
+			<tr><td colspan="2"><hr/></td></tr>
+			<tr><td >Compressive Stress -</td><td>Ref.Table <input type="button" value="8.7" onclick="divchg('t87')" /></td></tr>
+			<tr><td>Rolled Section - Table 8.8(a)</td><td><input type="button" value="8.8(a)" onclick="divchg('t88a')" /></td></tr>
+			<tr><td>Welded Section - Table 8.8(b)</td><td><input type="button" value="8.8(b)" onclick="divchg('t88b')" /></td></tr>
+			<tr><td>Welded Section - Table 8.8(c)</td><td><input type="button" value="8.8(c)" onclick="divchg('t88c')" /></td></tr>
+			<tr><td>Welded Section - Table 8.8(d)</td><td><input type="button" value="8.8(d)" onclick="divchg('t88d')" /></td></tr>
+		</table>
+	</div>
+<!-- 2nd DIV : Table 8.3a -->
+	<div id="t83a" class="t83a">
+		<table align="center" style="width:100%; height:100%;">
+		<tr>
+		<td>
+		<input type="button" value="HOME" onclick="divchg('tableselect')" /><input type="button" value="QUIT" onclick="quitapp()" />
+		<br/><hr/>
+		</td>
+		</tr>
+		<tr><td><iframe src="./t83a.html" style="width:100%; height:650px;" frameborder="0"></iframe></td></tr>
+		</table>
+	</div>
+<!-- 3rd DIV : Table 8.3b -->
+	<div id="t83b" class="t83a">
+		<table align="center" style="width:100%; height:100%;">
+		<tr>
+		<td>
+		<input type="button" value="HOME" onclick="divchg('tableselect')" /><input type="button" value="QUIT" onclick="quitapp()" />
+		<br/><hr/>
+		</td>
+		</tr>
+		<tr><td><iframe src="./t83b.html" style="width:100%; height:650px;" frameborder="0"></iframe></td></tr>
+		</table>
+	</div>
+<!-- 4th DIV : Table 8.8(a) -->
+	<div id="t88a" class="t83a">
+		<table align="center" style="width:100%; height:100%;">
+		<tr>
+		<td>
+		<input type="button" value="HOME" onclick="divchg('tableselect')" /><input type="button" value="QUIT" onclick="quitapp()" />
+		<br/><hr/>
+		</td>
+		</tr>
+		<tr><td><iframe src="./t88.html?t=a" style="width:100%; height:650px;" frameborder="0"></iframe></td></tr>
+		</table>
+	</div>
+<!-- 5th DIV : Table 8.8(b) -->
+	<div id="t88b" class="t83a">
+		<table align="center" style="width:100%; height:100%;">
+		<tr>
+		<td>
+		<input type="button" value="HOME" onclick="divchg('tableselect')" /><input type="button" value="QUIT" onclick="quitapp()" />
+		<br/><hr/>
+		</td>
+		</tr>
+		<tr><td><iframe src="./t88.html?t=b" style="width:100%; height:650px;" frameborder="0"></iframe></td></tr>
+		</table>
+	</div>
+<!-- 6th DIV : Table 8.8(c) -->
+	<div id="t88c" class="t83a">
+		<table align="center" style="width:100%; height:100%;">
+		<tr>
+		<td>
+		<input type="button" value="HOME" onclick="divchg('tableselect')" /><input type="button" value="QUIT" onclick="quitapp()" />
+		<br/><hr/>
+		</td>
+		</tr>
+		<tr><td><iframe src="./t88.html?t=c" style="width:100%; height:650px;" frameborder="0"></iframe></td></tr>
+		</table>
+	</div>
+<!-- 7th DIV : Table 8.8(d) -->
+	<div id="t88d" class="t83a">
+		<table align="center" style="width:100%; height:100%;">
+		<tr>
+		<td>
+		<input type="button" value="HOME" onclick="divchg('tableselect')" /><input type="button" value="QUIT" onclick="quitapp()" />
+		<br/><hr/>
+		</td>
+		</tr>
+		<tr><td><iframe src="./t88.html?t=d" style="width:100%; height:650px;" frameborder="0"></iframe></td></tr>
+		</table>
+	</div>
+<!-- 8th DIV : Table 8.7 -->
+	<div id="t87" class="t83a">
+		<table align="center" style="width:100%; height:100%;">
+		<tr>
+		<td>
+		<input type="button" value="HOME" onclick="divchg('tableselect')" /><input type="button" value="QUIT" onclick="quitapp()" />
+		<br/><hr/>
+		</td>
+		</tr>
+		<tr><td><iframe src="./t87.html" style="width:100%; height:650px;" frameborder="0"></iframe></td></tr>
+		</table>
+	</div>
+
+
+
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

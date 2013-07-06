@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./pagestyle.css" />
+<script type="text/javascript" src="./tablechecking.js"></script>
+<script type="text/javascript" src="./jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+qs = location.search.split("?")[1];
+params = qs.split("&");
+table = params[0].split("=")[1]; 
+sg = params[1].split("=")[1];
+tkn = params[2].split("=")[1];
+le = params[3].split("=")[1];
+ry = params[4].split("=")[1];
+lr = Math.floor(le/ry*100)/100;
+lrlt = Math.floor(lr*0.9*100)/100;
+	tablename = "./" + table + ".xml";
+	SteelGrade = sg;
+	
+	switch (sg)
+		{
+		case "S275":
+			switch (tkn)
+				{
+				case "th100":
+					py = "235N/mm<sup>2</sup>";
+					xpy = "235";
+				break;
+				case "th80":
+					py = "245N/mm<sup>2</sup>";
+					xpy = "245";
+				break;
+				case "th63":
+					py = "255N/mm<sup>2</sup>";
+					xpy = "255";
+				break;
+				case "th40":
+					py = "265N/mm<sup>2</sup>";
+					xpy = "265";
+				break;
+				case "th16":
+					py = "275N/mm<sup>2</sup>";
+					xpy = "275";
+				break;
+				}
+		break;
+		case "S355":
+			switch (tkn)
+				{
+				case "th100":
+					py = "315N/mm<sup>2</sup>";
+					 xpy = "315";
+				break;
+				case "th80":
+					py = "325N/mm<sup>2</sup>";
+					xpy = "325";
+				break;
+				case "th63":
+					py = "335N/mm<sup>2</sup>";
+					xpy = "335";
+				break;
+				case "th40":
+					py = "345N/mm<sup>2</sup>";
+					 xpy = "345";
+				break;
+				case "th16":
+					py = "355N/mm<sup>2</sup>";
+					xpy = "355";
+				break;
+				}
+		break;
+		case "S460":
+			switch (tkn)
+				{
+				case "th100":
+					py = "400N/mm<sup>2</sup>";
+					 xpy = "400";
+				break;
+				case "th80":
+					py = "410N/mm<sup>2</sup>";
+					xpy = "410";
+				break;
+				case "th63":
+					py = "430N/mm<sup>2</sup>";
+					xpy = "430";
+				break;
+				case "th40":
+					py = "440N/mm<sup>2</sup>";
+					xpy = "440";
+				break;
+				case "th16":
+					py = "460N/mm<sup>2</sup>";
+					xpy = "460";
+				break;
+				}
+		break;
+		}
+	yieldStress = "py"+xpy;
+//	alert("SG:"+SteelGrade+"\npy:"+yieldStress+"\nTable Name"+tablename+"\nlr:"+lr);
+	xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET",tablename,false);
+	xmlhttp.send();
+/*
+xmlhttp.onreadystatechange=function() {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {    alert("load OK");    }
+  }	
+*/	
+	xmlDoc=xmlhttp.responseXML; 
+	xStGr = xmlDoc.getElementsByTagName(SteelGrade);
+	xxpy = xStGr[0].getElementsByTagName(yieldStress);
+	xData = xxpy[0].getElementsByTagName("data");
+	xDataLEN = xData.length - 1 ;
+	for (i=0;i<xDataLEN;i++) {
+		ub = xData[i].getElementsByTagName("llt")[0].childNodes[0].nodeValue;
+		lb = xData[i+1].getElementsByTagName("llt")[0].childNodes[0].nodeValue;
+			if (ub<=lrlt && lb>lrlt) {
+				pbub = xData[i].getElementsByTagName("pb")[0].childNodes[0].nodeValue;
+				pblb = xData[i+1].getElementsByTagName("pb")[0].childNodes[0].nodeValue;
+				pb = Math.floor((pbub-(lrlt-ub)/(lb-ub)*(pbub-pblb))*1000)/1000;
+	$("#ub").html(ub);
+	$("#lb").html(lb);
+	$("#lrlt").html(lrlt);
+	$("#lrlt1").html(lrlt);
+	$("#lr").html(lr);
+	$("#pbub").html(pbub);
+	$("#pblb").html(pblb);
+	$("#pb").html(pb+"N/mm<sup>2</sup>");
+				}
+		}
+	if (lrlt<25) {
+		$("#ub").html("---");
+		$("#lb").html("---");
+		$("#lrlt").html(lrlt);
+		$("#lrlt1").html(lrlt);
+		$("#lr").html(lr);
+		$("#pbub").html("---");
+		$("#pblb").html("---");
+		$("#pb").html(xpy);
+		}
+	if (lrlt>250) {
+		$("#ub").html("---");
+		$("#lb").html("---");
+		$("#lrlt").html(lrlt);
+		$("#lrlt1").html(lrlt);
+		$("#lr").html(lr);
+		$("#pbub").html("---");
+		$("#pblb").html("---");
+		$("#pb").html("Slenderness Ratio TOO large!!!");
+		}
+});
+</script>
+</head>
+<body>
+<table>
+<tr><td colspan="3">&lambda; = l<sub>e</sub> / r<sub>y</sub> = <span id="lr"></span></td></tr>
+<tr><td colspan="3">For Conservatively, &lambda;<sub>LT</sub> = 0.9 x &lambda; = <span id="lrlt"></span></td></tr>
+<tr><td class="pbpc" rowspan="2">&lambda;<sub>LT</sub>Req.</td><td class="pbpc">&lambda;<sub>LT</sub></td><td class="pbpc">p<sub>b</sub></td></tr>
+<tr><td class="pbpc"><span id="ub"></span></td><td class="pbpc"><span id="pbub"></span></td></tr>
+<tr><td class="pbpc"><span id="lrlt1"></span></td><td class="pbpc"><span id="lb"></span></td><td class="pbpc"><span id="pblb"></span></td></tr>
+<tr><td class="pbpc" colspan="3"><b>p<sub>b</sub> = <span id="pb"></span></b></td></tr>
+
+
+
+
+</table>
+
+</body>
+</html>

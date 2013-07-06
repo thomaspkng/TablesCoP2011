@@ -1,0 +1,41 @@
+body {
+	font-size: 10px;
+	}
+table {
+	color: #FFFFBB;
+	border-collapse: collapse;
+	}
+table.mainscreen {
+	border-collapse: collapse;
+	background-color: #115511;
+	}
+td.container {
+	position: relative;
+	top: 0px;
+	vertical-align: top;
+	width: 100%;
+	height: 650px;
+	overflow: hidden;
+	}
+div.tableselect {
+	position: relative;
+	top: 0px;
+	color: #AAAA99;
+	background-color: #336633;
+	float: none;
+	}
+div.t83a {
+	position: relative;
+	top: 0px;
+	width: 100%;
+	color: #AA99AA;
+	background-color: #665533;
+	float: none;
+	}
+td.pbpc {
+	text-align: center;
+	}
+span.warning {
+	color: red;
+	float: none;
+	}

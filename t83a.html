@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="./pagestyle.css" />
+<script type="text/javascript" src="./tablechecking.js"></script>
+<script type="text/javascript" src="./jquery.js"></script>
+<script type="text/javascript" >
+function sgChk() {
+	var sg = $("input[name='sg']:checked").val();
+	tkn =  $("input[name='th']:checked").val();
+	switch (sg)
+		{
+		case "S275":
+			switch (tkn)
+				{
+				case "th100":
+					var py = "235N/mm<sup>2</sup>";
+					var xpy = "235";
+				break;
+				case "th80":
+					var py = "245N/mm<sup>2</sup>";
+					var xpy = "245";
+				break;
+				case "th63":
+					var py = "255N/mm<sup>2</sup>";
+					var xpy = "255";
+				break;
+				case "th40":
+					var py = "265N/mm<sup>2</sup>";
+					var xpy = "265";
+				break;
+				case "th16":
+					var py = "275N/mm<sup>2</sup>";
+					var xpy = "275";
+				break;
+				}
+		break;
+		case "S355":
+			switch (tkn)
+				{
+				case "th100":
+					var py = "315N/mm<sup>2</sup>";
+					var xpy = "315";
+				break;
+				case "th80":
+					var py = "325N/mm<sup>2</sup>";
+					var xpy = "325";
+				break;
+				case "th63":
+					var py = "335N/mm<sup>2</sup>";
+					var xpy = "335";
+				break;
+				case "th40":
+					var py = "345N/mm<sup>2</sup>";
+					var xpy = "345";
+				break;
+				case "th16":
+					var py = "355N/mm<sup>2</sup>";
+					var xpy = "355";
+				break;
+				}
+		break;
+		case "S460":
+			switch (tkn)
+				{
+				case "th100":
+					var py = "400N/mm<sup>2</sup>";
+					var xpy = "400";
+				break;
+				case "th80":
+					var py = "410N/mm<sup>2</sup>";
+					var xpy = "410";
+				break;
+				case "th63":
+					var py = "430N/mm<sup>2</sup>";
+					var xpy = "430";
+				break;
+				case "th40":
+					var py = "440N/mm<sup>2</sup>";
+					var xpy = "440";
+				break;
+				case "th16":
+					var py = "460N/mm<sup>2</sup>";
+					var xpy = "460";
+				break;
+				}
+		break;
+		}
+	switch (tkn) {
+		case "th16":
+		xtkn = "16"
+		break;
+		case "th40":
+		xtkn = "40"
+		break;
+		case "th63":
+		xtkn = "63"
+		break;
+		case "th80":
+		xtkn = "80"
+		break;
+		case "th100":
+		xtkn = "100"
+		break;
+	}
+	$("#xsg").html(sg);
+	$("#xtkn").html(xtkn);
+	$("#xpy").html(py);
+	}
+function lrChk() {
+	le = $("#le").val();
+	ry = $("#ry").val();
+	msg="";
+	$("#warnmsg").html(msg);
+	$("#pbchk").attr("src","");
+	if (ry==0) {
+		msg = "<div class='warning'>ry cannot be ZERO</div>";
+		$("#warnmsg").html(msg);
+		}
+	if (!Number(le) ||!Number(ry)) {
+		lrStt = "";
+		$("#lr").html(lrStt);
+		msg = "<div class='warning'>INVALID INPUT(S)</div>";
+		$("#warnmsg").html(msg);
+		}
+	else {
+		sg = $("input[name='sg']:checked").val();
+		tkn =  $("input[name='th']:checked").val();
+		urltogo = "./pbChk.html?table=83a&sg=" + sg + "&th=" + tkn + "&le=" + le + "&ry=" + ry ;
+		$("#pbchk").attr("src",urltogo);
+		}
+	}
+function init() {
+	$(document).ready(function(){
+		$("input[id='le']").val("0");
+		$("input[id='ry']").val("0");
+		sgChk();
+		$("input[name='sg']").change(function(){sgChk()});
+		$("input[name='th']").change(function(){sgChk()});
+	});
+	}
+</script>
+</head>
+<body onload="init()">
+		<table align="center" width="100%">
+		<tr>
+		<td colspan="2">
+		<b>Table 8.3a - Bending Stress (Rolled Section)</b>
+		<br/><hr/>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2">
+		Steel Grade : 
+		<input type="radio" name="sg" value="S275" checked="checked" />S275 |
+		<input type="radio" name="sg" value="S355" />S355 |
+		<input type="radio" name="sg" value="S460" />S460
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2">
+		Max Thickness : 
+		<input type="radio" name="th" value="th16" checked="checked" />&le;16 |
+		<input type="radio" name="th" value="th40" />&le;40 |
+		<input type="radio" name="th" value="th63" />&le;63 |
+		<input type="radio" name="th" value="th80" />&le;80 |
+		<input type="radio" name="th" value="th100" />&le;100
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2">
+		<b>Steel Grade = <span id="xsg"></span> & Max Thickness&le;<span id="xtkn"></span>mm, &there4;p<sub>y</sub> = <span id="xpy"></span></b><br/>
+		<hr/>
+		</td>
+		</tr>
+		<tr>
+		<td>Effective Length (L<sub>e</sub>) = </td>
+		<td><input type="number" id="le" />mm</td>
+		</tr>
+		<tr>
+		<td>Radius of Gyration (r<sub>y</sub>) = </td>
+		<td><input type="number" id="ry" />mm</td>
+		</tr>
+		<td colspan="2">
+		<input type="button" value="CHECK pb" onclick="lrChk()"><br/>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2">
+		<hr/>
+		<span id="lr"></span>
+		<span id="warnmsg" class="warning"></span>
+		<iframe id="pbchk" src="" frameborder="0"></iframe>
+		</td>
+		</tr>
+		<tr>
+		</table>
+</body>
+</html>
