@@ -2,6 +2,9 @@ body {
 	font-size: 10px;
 	}
 table {
+	position: fixed;
+	top: 0px;
+	left: 0px;
 	color: #FFFFBB;
 	border-collapse: collapse;
 	}
