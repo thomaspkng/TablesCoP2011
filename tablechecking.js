@@ -1,6 +1,3 @@
-function quitapp() {
-	navigator.app.exitApp();
-	}
 function formatcheck() {
 	xx= document.getElementById("nin");
 	alert(xx.value);
