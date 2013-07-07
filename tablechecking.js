@@ -55,6 +55,7 @@ function init() {
 		wW = window.innerWidth;
 		zR = Math.floor(wW/4)/100;
 		zStr = "scale("+zR+","+zR+")";
-	  	$("#maintable").width(wW);
+	  	$("#maintable").css("transform", zStr);
+	  	$("#maintable").css("-webkit-transform", zStr);
 		});
 	}

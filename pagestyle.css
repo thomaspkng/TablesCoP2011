@@ -11,6 +11,9 @@ table.mainscreen {
 	left: 0px;
 	border-collapse: collapse;
 	background-color: #115511;
+	transform-origin:0% 0%;
+	-ms-transform-origin:0% 0%; /* IE 9 */
+	-webkit-transform-origin:0% 0%; /* Safari and Chrome */
 	}
 .t87 {
 	position: relative;
