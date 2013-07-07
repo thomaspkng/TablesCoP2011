@@ -52,7 +52,7 @@ function divchg(divshow) {
 function init() {
 	$(document).ready(function(){
 		divchg("tableselect");
-		wW = document.innerWidth;
+		wW = window.innerWidth;
 	  	$("#mainscreen").width(wW);
 		});
 	}
