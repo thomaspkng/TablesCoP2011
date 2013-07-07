@@ -53,6 +53,6 @@ function init() {
 	$(document).ready(function(){
 		divchg("tableselect");
 		wW = document.innerWidth;
-	  	$("#mainscreen").css('width', wW);
+	  	$("#mainscreen").width(wW);
 		});
 	}
