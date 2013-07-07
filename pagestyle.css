@@ -16,6 +16,8 @@ table.mainscreen {
 	position: relative;
 	top: 0px;
 	left: 0px;
+	width: 100%;
+	overflow: hidden;
 	border-collapse: collapse;
 	background-color: #665533;
 	}
