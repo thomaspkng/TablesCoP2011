@@ -55,9 +55,6 @@ function init() {
 		wW = window.innerWidth;
 		zR = Math.floor(wW/4)/100;
 		zStr = "scale("+zR+","+zR+")";
-		alert(wW);
-//		document.getElementById("maintable").width = wW;
-//		document.getElementById("maintable").style.webkitTransform = zStr;
 	  	$("#maintable").width(wW);
 		});
 	}
